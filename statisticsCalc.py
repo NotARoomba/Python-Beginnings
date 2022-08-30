@@ -34,6 +34,6 @@ for i in range(len(f)):
         F[0] = f[0]
     else:
         F[i] = F[i-1]+f[i]
-table=[[intv[i], f[i], fr[i], fp[i], F[i], x[i]] for i in range(T)]
-table.insert(0, ['Interval', 'f', 'fr', 'fp', 'F', 'x;'])
+table=[[intv[i], f[i], fr[i], fp[i], F[i], x[i]] for i in range(T+1)]
+table.insert(0, ['Interval', 'f', 'fr', 'f%', 'F', 'x;'])
 print(tabulate(table))
