@@ -13,7 +13,7 @@ numbers = list(map(int, numbers))
 numbers.sort()
 print(f'Number of numbers: {len(numbers)}')
 
-is_float = False
+is_float = True
 
 highest= (int)(numbers[0])
 lowest = (int)(numbers[0])
@@ -26,10 +26,10 @@ for i in numbers:
     if i<lowest:
         lowest=i 
 R=highest-lowest
-t=round((math.sqrt(len(numbers))))
-# t=round(10)
-T=round(R/round(math.sqrt(len(numbers))))
-# T=round(R/10)
+# t=round((math.sqrt(len(numbers))))
+t=round(10)
+# T=round(R/round(math.sqrt(len(numbers))))
+T=round(R/10)
 t+=1
 intv,f,fr,fp,F,x,Fr = [""]*t,[0]*t,[0]*t,[0]*t,[0]*t,[0]*t,[0]*t
 t-=1
@@ -54,6 +54,12 @@ for i in range(len(f)):
 table=["" if intv[i] == "" else [intv[i], x[i]/10 if is_float else x[i], f[i], fr[i], F[i], Fr[i], f'{fp[i]}%'] for i in range(t+1)]
 table.insert(0, ['Interval', 'x;', 'f', 'fr', 'F', 'Fr', '%'])
 print(tabulate(table))
+#WRITEING TO CSV
+csv_content=tabulate(table, tablefmt="tsv")
+text_file=open("output.csv","w")
+text_file.write(csv_content)
+text_file.close()
+###
 mean = round(sum(list(map(lambda x: x/10, numbers)) if is_float else numbers)/len(numbers), 2)
 median = (numbers[len(numbers)//2]+numbers[round(len(numbers)/2)])/2 if len(numbers) % 2 == 1 else numbers[len(numbers)//2]
 mode = max(set(numbers), key=numbers.count)
