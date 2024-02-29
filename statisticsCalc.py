@@ -13,7 +13,7 @@ numbers = list(map(int, numbers))
 numbers.sort()
 print(f'Number of numbers: {len(numbers)}')
 
-is_float = True
+is_float = False
 
 highest= (int)(numbers[0])
 lowest = (int)(numbers[0])
@@ -26,10 +26,10 @@ for i in numbers:
     if i<lowest:
         lowest=i 
 R=highest-lowest
-# t=round((math.sqrt(len(numbers))))
-t=round(10)
-# T=round(R/round(math.sqrt(len(numbers))))
-T=round(R/10)
+t=round((math.sqrt(len(numbers))))
+# t=round(10)
+T=round(R/round(math.sqrt(len(numbers))))
+# T=round(R/10)
 t+=1
 intv,f,fr,fp,F,x,Fr = [""]*t,[0]*t,[0]*t,[0]*t,[0]*t,[0]*t,[0]*t
 t-=1
